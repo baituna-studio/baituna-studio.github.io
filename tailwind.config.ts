@@ -6,7 +6,15 @@ export default {
     "./theme.config.tsx",
   ],
   theme: {
-    extend: {},
+    extend: {
+      colors: {
+        figma: {
+          bg: '#F8F8F8',
+          text: '#1E1E1E',
+          border: '#1E1E1E',
+        }
+      }
+    },
   },
   plugins: [],
 }

@@ -21,20 +21,20 @@ export const SectionTitle: React.FC<SectionTitleProps> = ({
 }) => {
   return (
     <div className={cn(
-      "mb-12 space-y-4",
+      "mb-16 space-y-4",
       centered && "text-center mx-auto max-w-2xl",
       className
     )}>
-      <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-slate-900">
+      <h2 className="text-4xl md:text-5xl font-bold tracking-tighter text-figma-text uppercase leading-none">
         {title}
       </h2>
       {subtitle && (
-        <p className="text-lg text-slate-600 leading-relaxed">
+        <p className="text-sm font-bold uppercase tracking-widest text-figma-text/40 leading-relaxed">
           {subtitle}
         </p>
       )}
       <div className={cn(
-        "h-1.5 w-20 bg-blue-600 rounded-full",
+        "h-[2px] w-12 bg-figma-text",
         centered && "mx-auto"
       )} />
     </div>

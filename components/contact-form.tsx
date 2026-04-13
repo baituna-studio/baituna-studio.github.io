@@ -49,57 +49,57 @@ export const ContactForm = () => {
   }
 
   return (
-    <div className="bg-white p-8 rounded-3xl border border-slate-200 shadow-sm">
-      <form onSubmit={handleSubmit} className="space-y-6">
-        <div>
-          <label htmlFor="name" className="block text-sm font-medium text-slate-700 mb-1">Nama Lengkap</label>
+    <div className="bg-transparent p-0">
+      <form onSubmit={handleSubmit} className="space-y-10">
+        <div className="group">
+          <label htmlFor="name" className="block text-[10px] font-bold uppercase tracking-[0.2em] text-figma-text/40 mb-3 group-focus-within:text-figma-text transition-colors">Nama Lengkap</label>
           <input
             type="text"
             id="name"
             value={formData.name}
             onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-            className="block w-full rounded-xl border-slate-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 sm:text-sm p-3 border"
-            placeholder="Masukkan nama Anda"
+            className="block w-full bg-transparent border-b-2 border-figma-text/10 focus:border-figma-text transition-all py-4 px-0 text-lg font-bold text-figma-text outline-none placeholder:text-figma-text/10"
+            placeholder="TYPE YOUR NAME HERE..."
           />
-          {errors.name && <p className="mt-1 text-xs text-red-500">{errors.name[0]}</p>}
+          {errors.name && <p className="mt-2 text-[10px] font-bold uppercase text-red-500 tracking-widest">{errors.name[0]}</p>}
         </div>
 
-        <div>
-          <label htmlFor="email" className="block text-sm font-medium text-slate-700 mb-1">Email Bisnis</label>
+        <div className="group">
+          <label htmlFor="email" className="block text-[10px] font-bold uppercase tracking-[0.2em] text-figma-text/40 mb-3 group-focus-within:text-figma-text transition-colors">Email Bisnis</label>
           <input
             type="email"
             id="email"
             value={formData.email}
             onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-            className="block w-full rounded-xl border-slate-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 sm:text-sm p-3 border"
-            placeholder="nama@perusahaan.com"
+            className="block w-full bg-transparent border-b-2 border-figma-text/10 focus:border-figma-text transition-all py-4 px-0 text-lg font-bold text-figma-text outline-none placeholder:text-figma-text/10"
+            placeholder="YOUR@EMAIL.COM"
           />
-          {errors.email && <p className="mt-1 text-xs text-red-500">{errors.email[0]}</p>}
+          {errors.email && <p className="mt-2 text-[10px] font-bold uppercase text-red-500 tracking-widest">{errors.email[0]}</p>}
         </div>
 
-        <div>
-          <label htmlFor="message" className="block text-sm font-medium text-slate-700 mb-1">Pesan atau Konsultasi</label>
+        <div className="group">
+          <label htmlFor="message" className="block text-[10px] font-bold uppercase tracking-[0.2em] text-figma-text/40 mb-3 group-focus-within:text-figma-text transition-colors">Pesan atau Konsultasi</label>
           <textarea
             id="message"
             rows={4}
             value={formData.message}
             onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-            className="block w-full rounded-xl border-slate-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 sm:text-sm p-3 border"
-            placeholder="Ceritakan sedikit tentang proyek atau kebutuhan Anda..."
+            className="block w-full bg-transparent border-b-2 border-figma-text/10 focus:border-figma-text transition-all py-4 px-0 text-lg font-bold text-figma-text outline-none placeholder:text-figma-text/10 resize-none"
+            placeholder="TELL US ABOUT YOUR PROJECT..."
           />
-          {errors.message && <p className="mt-1 text-xs text-red-500">{errors.message[0]}</p>}
+          {errors.message && <p className="mt-2 text-[10px] font-bold uppercase text-red-500 tracking-widest">{errors.message[0]}</p>}
         </div>
 
         <button
           type="submit"
           disabled={isSubmitting}
-          className="w-full rounded-full bg-blue-600 px-8 py-4 text-base font-semibold text-white shadow-sm hover:bg-blue-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600 transition-all active:scale-95 disabled:opacity-50"
+          className="w-full bg-figma-text text-figma-bg py-6 text-xs font-bold uppercase tracking-[0.3em] hover:bg-figma-text/90 transition-all active:scale-95 disabled:opacity-50"
         >
-          {isSubmitting ? 'Mengirim...' : 'Kirim Pesan'}
+          {isSubmitting ? 'SENDING...' : 'SEND MESSAGE'}
         </button>
 
         {status && (
-          <div className={`p-4 rounded-xl text-sm font-medium ${status.type === 'success' ? 'bg-green-50 text-green-700' : 'bg-red-50 text-red-700'}`}>
+          <div className={`p-6 border-2 font-bold uppercase text-[10px] tracking-widest ${status.type === 'success' ? 'border-green-500 text-green-500' : 'border-red-500 text-red-500'}`}>
             {status.message}
           </div>
         )}

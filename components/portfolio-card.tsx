@@ -11,19 +11,28 @@ interface PortfolioCardProps {
 
 export const PortfolioCard: React.FC<PortfolioCardProps> = ({ title, category, image, href }) => {
   return (
-    <Link href={href} className="group relative block overflow-hidden rounded-3xl bg-slate-100 shadow-sm transition-all hover:shadow-xl">
-      <div className="aspect-[16/10] overflow-hidden">
-        {/* Using a placeholder if image doesn't exist yet */}
-        <div className="h-full w-full bg-slate-200 group-hover:scale-105 transition-transform duration-500 ease-out" />
+    <Link href={href} className="group relative block overflow-hidden border-2 border-figma-text/10 hover:border-figma-text transition-all bg-figma-bg">
+      <div className="aspect-[16/10] overflow-hidden grayscale group-hover:grayscale-0 transition-all duration-700">
+        {/* Fill with a placeholder color to simulate mockup background from Figma */}
+        <div className="h-full w-full bg-figma-text/5 group-hover:scale-105 transition-transform duration-700 ease-out flex items-center justify-center p-12">
+           <div className="w-full h-full border-2 border-figma-text/5 bg-white shadow-2xl origin-bottom group-hover:rotate-1 transition-transform duration-700" />
+        </div>
       </div>
-      <div className="absolute inset-0 bg-gradient-to-t from-slate-900/80 via-slate-900/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
-      <div className="absolute bottom-0 left-0 right-0 p-6 translate-y-4 group-hover:translate-y-0 opacity-0 group-hover:opacity-100 transition-all duration-300">
-        <p className="text-xs font-semibold uppercase tracking-wider text-blue-400 mb-1">
-          {category}
-        </p>
-        <h3 className="text-xl font-bold text-white">
-          {title}
-        </h3>
+      
+      <div className="p-8">
+        <div className="flex items-center justify-between gap-4">
+          <div>
+            <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-figma-text/30 mb-2">
+              {category}
+            </p>
+            <h3 className="text-2xl font-bold text-figma-text uppercase tracking-tighter leading-none">
+              {title}
+            </h3>
+          </div>
+          <div className="text-figma-text/20 group-hover:text-figma-text transition-colors">
+            <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
+          </div>
+        </div>
       </div>
     </Link>
   )

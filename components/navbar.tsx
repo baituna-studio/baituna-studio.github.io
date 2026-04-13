@@ -14,12 +14,12 @@ export const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false)
 
   return (
-    <nav className="sticky top-0 z-50 w-full border-b border-slate-200 bg-white/80 backdrop-blur-md">
+    <nav className="sticky top-0 z-50 w-full border-b border-figma-text/10 bg-figma-bg/90 backdrop-blur-sm">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="flex h-16 items-center justify-between">
           <div className="flex items-center">
             <Link href="/" className="flex items-center gap-2 group">
-              <span className="text-xl font-bold tracking-tight text-slate-900 group-hover:text-blue-600 transition-colors">
+              <span className="text-xl font-bold tracking-tighter text-figma-text uppercase">
                 {siteConfig.name}
               </span>
             </Link>
@@ -27,21 +27,21 @@ export const Navbar = () => {
           
           {/* Desktop Nav */}
           <div className="hidden md:block">
-            <div className="ml-10 flex items-baseline space-x-8">
+            <div className="ml-10 flex items-center space-x-8">
               {siteConfig.nav.map((item) => (
                 <Link
                   key={item.href}
                   href={item.href}
-                  className="text-sm font-medium text-slate-600 hover:text-blue-600 transition-colors"
+                  className="text-xs font-bold uppercase tracking-widest text-figma-text/70 hover:text-figma-text transition-colors"
                 >
                   {item.title}
                 </Link>
               ))}
               <Link
                 href={`https://wa.me/${siteConfig.whatsapp}?text=${encodeURIComponent(siteConfig.whatsappMessage)}`}
-                className="inline-flex items-center justify-center rounded-full bg-blue-600 px-5 py-2 text-sm font-semibold text-white shadow-sm hover:bg-blue-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600 transition-all active:scale-95"
+                className="inline-flex items-center justify-center border-2 border-figma-text px-6 py-2 text-xs font-bold uppercase tracking-widest text-figma-text hover:bg-figma-text hover:text-figma-bg transition-all active:scale-95"
               >
-                Konsultasi Gratis
+                Konsultasi
               </Link>
             </div>
           </div>
@@ -50,7 +50,7 @@ export const Navbar = () => {
           <div className="flex md:hidden">
             <button
               onClick={() => setIsOpen(!isOpen)}
-              className="inline-flex items-center justify-center rounded-md p-2 text-slate-400 hover:bg-slate-100 hover:text-slate-500 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-blue-500"
+              className="inline-flex items-center justify-center p-2 text-figma-text hover:bg-figma-text/5 focus:outline-none"
             >
               <span className="sr-only">Open main menu</span>
               {isOpen ? (
@@ -69,23 +69,23 @@ export const Navbar = () => {
 
       {/* Mobile Nav */}
       <div className={cn("md:hidden", isOpen ? "block" : "hidden")}>
-        <div className="space-y-1 px-2 pb-3 pt-2 sm:px-3 bg-white border-b border-slate-100 shadow-lg">
+        <div className="space-y-1 px-2 pb-6 pt-2 sm:px-3 bg-figma-bg border-b border-figma-text/10 shadow-xl">
           {siteConfig.nav.map((item) => (
             <Link
               key={item.href}
               href={item.href}
               onClick={() => setIsOpen(false)}
-              className="block rounded-md px-3 py-2 text-base font-medium text-slate-600 hover:bg-slate-50 hover:text-blue-600 transition-colors"
+              className="block px-3 py-3 text-sm font-bold uppercase tracking-widest text-figma-text/70 hover:text-figma-text transition-colors"
             >
               {item.title}
             </Link>
           ))}
-          <div className="px-3 py-2">
+          <div className="px-3 pt-4">
              <Link
                 href={`https://wa.me/${siteConfig.whatsapp}?text=${encodeURIComponent(siteConfig.whatsappMessage)}`}
-                className="flex w-full items-center justify-center rounded-full bg-blue-600 px-5 py-3 text-sm font-semibold text-white shadow-sm hover:bg-blue-500 transition-all"
+                className="flex w-full items-center justify-center border-2 border-figma-text px-5 py-3 text-xs font-bold uppercase tracking-widest text-figma-text hover:bg-figma-text hover:text-figma-bg transition-all"
               >
-                Konsultasi via WhatsApp
+                Konsultasi WhatsApp
               </Link>
           </div>
         </div>
