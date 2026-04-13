@@ -1,0 +1,12 @@
+schema: spec-driven
+
+context: |
+  Project: Baituna Studio — digital studio website
+  Domain: https://baitunastudio.biz.id
+  Language: Indonesian (id)
+  Tech stack: Next.js App Router, Nextra, MDX, TypeScript, Tailwind CSS, Zod
+  Deployment: server-runtime (no static export)
+  Brand tone: clean, modern, professional, minimalist, trust-oriented
+  Target audience: UMKM, personal brand, professional services
+  No database in v1 — leads stored in-memory or forwarded
+  No CMS — content managed via MDX files
