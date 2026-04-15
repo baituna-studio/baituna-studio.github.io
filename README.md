@@ -13,7 +13,7 @@
   </p>
 </div>
 
-Website ini dibangun dengan Next.js (App Router), Mantine UI, Tailwind CSS, dan Nextra (MDX) untuk menghadirkan pengalaman digital yang elegan, cepat, dan mudah dipelihara.
+Website ini dibangun dengan Next.js (App Router), Mantine UI, Tailwind CSS, dan Nextra (MDX) untuk menghadirkan pengalaman digital yang elegan, cepat, dan mudah dipelihara
 
 ## Ringkasan
 
