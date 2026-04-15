@@ -1,4 +1,5 @@
 import React from 'react'
+import { Card, Group, Text, ThemeIcon, Title } from '@mantine/core'
 
 interface ServiceCardProps {
   title: string
@@ -8,18 +9,26 @@ interface ServiceCardProps {
 
 export const ServiceCard: React.FC<ServiceCardProps> = ({ title, description, icon }) => {
   return (
-    <div className="relative flex flex-col items-start p-10 bg-transparent border-2 border-figma-text/10 hover:border-figma-text transition-all group">
-      {icon && (
-        <div className="mb-8 p-0 text-figma-text group-hover:scale-110 transition-transform duration-300">
+    <Card
+      className="premium-surface h-full transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl"
+      shadow="sm"
+    >
+      <Group mb="lg">
+        <ThemeIcon
+          size={52}
+          radius="xl"
+          variant="light"
+          color="slate"
+        >
           {icon}
-        </div>
-      )}
-      <h3 className="text-xl font-bold text-figma-text mb-4 uppercase tracking-tight">
+        </ThemeIcon>
+      </Group>
+      <Title order={3} fz="h4" mb="sm">
         {title}
-      </h3>
-      <p className="text-figma-text/60 leading-relaxed text-sm font-medium">
+      </Title>
+      <Text c="dimmed" size="sm" lh={1.7}>
         {description}
-      </p>
-    </div>
+      </Text>
+    </Card>
   )
 }

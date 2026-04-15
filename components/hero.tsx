@@ -1,43 +1,64 @@
-import React from 'react'
-import Link from 'next/link'
+import { Badge, Box, Button, Container, Group, Stack, Text, Title } from '@mantine/core'
+import { IconArrowRight, IconSparkles } from '@tabler/icons-react'
 import { siteConfig } from '@/lib/site'
 
 export const Hero = () => {
   return (
-    <section className="relative overflow-hidden bg-figma-bg py-24 sm:py-32 lg:py-48 border-b border-figma-text/10">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="flex flex-col md:flex-row items-center justify-between gap-12">
-          <div className="max-w-3xl">
-            <h1 className="text-6xl font-bold tracking-tighter text-figma-text sm:text-8xl lg:text-9xl leading-[0.8] mb-8">
-              DIGITAL<br />
-              RESIDENCE.
-            </h1>
-            <p className="text-lg font-medium text-figma-text/60 sm:max-w-xl leading-relaxed mb-12">
-              Baituna Studio membangun "rumah digital" yang rapi, cepat, dan profesional untuk UMKM dan bisnis modern.
-            </p>
-            <div className="flex flex-wrap items-center gap-6">
-              <Link
-                href="/portfolio"
-                className="inline-flex items-center justify-center border-2 border-figma-text bg-figma-text px-10 py-4 text-sm font-bold uppercase tracking-widest text-figma-bg hover:bg-transparent hover:text-figma-text transition-all active:scale-95"
-              >
-                Lihat Karya
-              </Link>
-              <Link 
-                href="/contact" 
-                className="text-sm font-bold uppercase tracking-widest text-figma-text hover:underline decoration-2 underline-offset-8 transition-all"
-              >
-                Hubungi Kami →
-              </Link>
-            </div>
-          </div>
-          
-          <div className="hidden lg:block">
-            <div className="vertical-label text-[10px] font-bold uppercase tracking-[0.5em] text-figma-text/20">
-              PORTFOLIO DESIGN — EST. 2024
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
+    <Box component="section" className="relative overflow-hidden border-b border-figma-border/80 py-24 sm:py-30 lg:py-40">
+      <Box className="absolute inset-0 premium-hero-mesh" />
+      <Box className="absolute -left-12 top-16 h-52 w-52 rounded-full bg-slate-500/20 blur-3xl animate-soft-pulse" />
+      <Box className="absolute bottom-8 right-8 h-56 w-56 rounded-full bg-[#8e652b]/20 blur-3xl animate-soft-pulse" />
+
+      <Container size="lg" className="relative z-10">
+        <Stack gap="xl" className="animate-slide-up">
+          <Group justify="space-between" align="flex-start">
+            <Badge
+              leftSection={<IconSparkles size={14} />}
+              size="lg"
+              variant="light"
+              color="bronze"
+              className="uppercase tracking-[0.16em]"
+            >
+              Refined Agency Experience
+            </Badge>
+            <Text className="vertical-label hidden text-[10px] font-semibold uppercase tracking-[0.32em] text-[rgb(var(--hero-label-rgb))] lg:block">
+              PORTFOLIO DESIGN - EST. 2024
+            </Text>
+          </Group>
+
+          <Title
+            order={1}
+            fz={{ base: 48, sm: 74, lg: 102 }}
+            lh={0.9}
+            maw={840}
+            fw={600}
+          >
+            DIGITAL RESIDENCE FOR MODERN BRANDS.
+          </Title>
+
+          <Text fz={{ base: 'md', md: 'lg' }} maw={700} c="dimmed" lh={1.85}>
+            {siteConfig.name} membangun website dan branding yang terlihat premium, tetap cepat, dan siap convert.
+            Cocok untuk UMKM naik kelas maupun product company yang ingin tampil lebih otoritatif.
+          </Text>
+
+          <Group gap="md">
+            <Button
+              component="a"
+              href="/portfolio"
+              variant="filled"
+              color="dark"
+              size="lg"
+              rightSection={<IconArrowRight size={16} />}
+              className="shadow-lg"
+            >
+              Lihat Karya
+            </Button>
+            <Button component="a" href="/contact" variant="default" size="lg">
+              Hubungi Kami
+            </Button>
+          </Group>
+        </Stack>
+      </Container>
+    </Box>
   )
 }

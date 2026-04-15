@@ -1,51 +1,69 @@
-import React from 'react'
 import { ContactForm } from '@/components/contact-form'
 import { SectionTitle } from '@/components/section-title'
 import { siteConfig } from '@/lib/site'
 import Link from 'next/link'
+import { Badge, Button, Container, Group, Paper, SimpleGrid, Stack, Text, ThemeIcon, Title } from '@mantine/core'
+import { IconBrandWhatsapp, IconMail, IconMapPin } from '@tabler/icons-react'
 
 export default function ContactPage() {
   return (
-    <div className="bg-figma-bg min-h-screen">
-      <div className="mx-auto max-w-7xl px-4 py-24 sm:px-6 lg:px-8">
-        <div className="lg:grid lg:grid-cols-2 lg:gap-32 items-start">
-          <div>
-            <SectionTitle 
-              title="LET'S TALK." 
-              subtitle="Every great project starts with a conversation."
-            />
-            
-            <div className="mt-24 space-y-16">
-               <div className="flex flex-col gap-4">
-                  <span className="text-[10px] font-bold uppercase tracking-[0.5em] text-figma-text/20">EMAIL US</span>
-                  <Link href={`mailto:${siteConfig.email}`} className="text-3xl md:text-4xl font-bold tracking-tighter text-figma-text hover:underline underline-offset-8 transition-all">
-                    {siteConfig.email}
-                  </Link>
-               </div>
+    <Container size="lg" py={88}>
+      <SimpleGrid cols={{ base: 1, lg: 2 }} spacing={{ base: 'lg', lg: 'xl' }}>
+        <Stack gap="lg">
+          <SectionTitle
+            title="LET'S TALK."
+            subtitle="Every great product and agency project starts with one sharp conversation."
+            className="mb-0"
+          />
 
-               <div className="flex flex-col gap-4">
-                  <span className="text-[10px] font-bold uppercase tracking-[0.5em] text-figma-text/20">WHATSAPP</span>
-                  <Link 
-                    href={`https://wa.me/${siteConfig.whatsapp}?text=${encodeURIComponent(siteConfig.whatsappMessage)}`} 
-                    className="text-3xl md:text-4xl font-bold tracking-tighter text-figma-text hover:underline underline-offset-8 transition-all"
-                  >
-                    START CHAT →
-                  </Link>
-               </div>
+          <Paper withBorder p="xl" className="premium-surface">
+            <Stack gap="md">
+              <Badge variant="light" color="bronze">Contact Channel</Badge>
+              <Group gap="sm">
+                <ThemeIcon variant="light" color="bronze"><IconMail size={16} /></ThemeIcon>
+                <Link href={`mailto:${siteConfig.email}`} className="text-inherit no-underline hover:underline">
+                  {siteConfig.email}
+                </Link>
+              </Group>
+              <Group gap="sm">
+                <ThemeIcon variant="light" color="bronze"><IconBrandWhatsapp size={16} /></ThemeIcon>
+                <Link
+                  href={`https://wa.me/${siteConfig.whatsapp}?text=${encodeURIComponent(siteConfig.whatsappMessage)}`}
+                  className="text-inherit no-underline hover:underline"
+                >
+                  Start WhatsApp Chat
+                </Link>
+              </Group>
+              <Group gap="sm" align="start">
+                <ThemeIcon variant="light" color="bronze"><IconMapPin size={16} /></ThemeIcon>
+                <Text c="dimmed" size="sm">Bantul, Daerah Istimewa Yogyakarta, Indonesia</Text>
+              </Group>
+            </Stack>
+          </Paper>
 
-               <div className="pt-8 block">
-                  <div className="vertical-label text-[10px] font-bold uppercase tracking-[0.5em] text-figma-text/10">
-                    BAITUNA STUDIO — YOGYAKARTA, ID
-                  </div>
-               </div>
-            </div>
-          </div>
+          <Paper withBorder p="xl" className="premium-surface">
+            <Stack gap="sm">
+              <Title order={4}>Prefer instant briefing?</Title>
+              <Text c="dimmed" size="sm">
+                Klik WhatsApp untuk dapatkan estimasi timeline dan skema pengerjaan.
+              </Text>
+              <Button
+                component="a"
+                href={`https://wa.me/${siteConfig.whatsapp}?text=${encodeURIComponent(siteConfig.whatsappMessage)}`}
+                variant="filled"
+                color="dark"
+                radius="xl"
+              >
+                Chat Sekarang
+              </Button>
+            </Stack>
+          </Paper>
+        </Stack>
 
-          <div className="mt-24 lg:mt-0">
-            <ContactForm />
-          </div>
-        </div>
-      </div>
-    </div>
+        <Paper withBorder p={{ base: 'lg', md: 'xl' }} className="premium-surface">
+          <ContactForm />
+        </Paper>
+      </SimpleGrid>
+    </Container>
   )
 }

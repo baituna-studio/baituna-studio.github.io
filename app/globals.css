@@ -1,29 +1,128 @@
 @import "tailwindcss";
 
 @theme {
-  --color-figma-bg: #F8F8F8;
-  --color-figma-text: #1E1E1E;
+  --color-figma-bg: #f3f2ef;
+  --color-figma-text: #1f242c;
+  --color-figma-border: #d7d3cb;
+  --color-figma-accent: #8e652b;
 }
 
 :root {
-  --foreground-rgb: 30, 30, 30;
-  --background-rgb: 248, 248, 248;
+  --foreground-rgb: 31, 36, 44;
+  --background-rgb: 243, 242, 239;
+  --hero-label-rgb: 56, 63, 73;
+  --premium-hero-gradient: radial-gradient(circle at 20% 20%, rgba(113, 128, 150, 0.2), transparent 45%),
+    radial-gradient(circle at 80% 10%, rgba(142, 101, 43, 0.18), transparent 40%),
+    linear-gradient(125deg, rgba(245, 243, 239, 0.95), rgba(229, 225, 216, 0.88));
+}
+
+[data-mantine-color-scheme="dark"] {
+  --foreground-rgb: 229, 229, 226;
+  --background-rgb: 15, 17, 21;
+  --hero-label-rgb: 182, 186, 194;
+  --color-figma-bg: #0f1115;
+  --color-figma-text: #e5e5e2;
+  --color-figma-border: #2f343d;
+  --premium-hero-gradient: radial-gradient(circle at 20% 20%, rgba(122, 133, 150, 0.26), transparent 45%),
+    radial-gradient(circle at 80% 10%, rgba(142, 101, 43, 0.22), transparent 42%),
+    linear-gradient(130deg, rgba(22, 24, 30, 0.97), rgba(15, 17, 21, 0.98));
 }
 
 body {
-  color: var(--color-figma-text);
-  background-color: var(--color-figma-bg);
+  color: rgb(var(--foreground-rgb));
+  background-color: rgb(var(--background-rgb));
   min-height: 100vh;
+  font-feature-settings: "liga" 1, "kern" 1, "ss01" 1;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 h1, h2, h3, h4, h5, h6 {
-  @apply tracking-tighter font-bold uppercase;
-  color: var(--color-figma-text);
+  color: var(--mantine-color-text);
 }
 
 .vertical-label {
   writing-mode: vertical-rl;
   text-orientation: mixed;
+}
+
+.premium-blur {
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+}
+
+.premium-surface {
+  border: 1px solid color-mix(in srgb, var(--mantine-color-default-border) 85%, transparent);
+  background: color-mix(in srgb, var(--mantine-color-body) 92%, transparent);
+  box-shadow: 0 14px 40px rgba(16, 17, 24, 0.06);
+}
+
+[data-mantine-color-scheme="dark"] .premium-surface {
+  background: color-mix(in srgb, #151922 84%, transparent);
+  box-shadow: 0 20px 48px rgba(0, 0, 0, 0.28);
+}
+
+.premium-hero-mesh {
+  background-image: var(--premium-hero-gradient);
+  background-size: 170% 170%;
+  animation: gradient-shift 18s ease-in-out infinite;
+}
+
+.animate-fade-in {
+  animation: fade-in 600ms ease both;
+}
+
+.animate-slide-up {
+  animation: slide-up 700ms cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.animate-soft-pulse {
+  animation: soft-pulse 4s ease-in-out infinite;
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slide-up {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes gradient-shift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@keyframes soft-pulse {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 0.75;
+  }
+  50% {
+    transform: scale(1.04);
+    opacity: 1;
+  }
 }

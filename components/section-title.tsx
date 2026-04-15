@@ -1,10 +1,6 @@
-import React from 'react'
-import { clsx, type ClassValue } from 'clsx'
-import { twMerge } from 'tailwind-merge'
-
-function cn(...inputs: ClassValue[]) {
-  return twMerge(clsx(inputs))
-}
+import type React from 'react'
+import { Box, Stack, Text, Title } from '@mantine/core'
+import { clsx } from 'clsx'
 
 interface SectionTitleProps {
   title: string
@@ -20,23 +16,25 @@ export const SectionTitle: React.FC<SectionTitleProps> = ({
   className 
 }) => {
   return (
-    <div className={cn(
-      "mb-16 space-y-4",
-      centered && "text-center mx-auto max-w-2xl",
-      className
-    )}>
-      <h2 className="text-4xl md:text-5xl font-bold tracking-tighter text-figma-text uppercase leading-none">
+    <Stack
+      gap="sm"
+      className={clsx("mb-12", centered && "mx-auto max-w-3xl text-center", className)}
+      align={centered ? 'center' : 'flex-start'}
+    >
+      <Title
+        order={2}
+        fz={{ base: 34, md: 52 }}
+        fw={600}
+        lh={1.08}
+      >
         {title}
-      </h2>
+      </Title>
       {subtitle && (
-        <p className="text-sm font-bold uppercase tracking-widest text-figma-text/40 leading-relaxed">
+        <Text c="dimmed" fw={500} fz="xs" maw={680} className="tracking-[0.14em] uppercase">
           {subtitle}
-        </p>
+        </Text>
       )}
-      <div className={cn(
-        "h-[2px] w-12 bg-figma-text",
-        centered && "mx-auto"
-      )} />
-    </div>
+      <Box h={2} w={80} className="rounded-full bg-[var(--color-figma-accent)]" />
+    </Stack>
   )
 }

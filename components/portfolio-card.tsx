@@ -1,6 +1,6 @@
-import React from 'react'
 import Link from 'next/link'
-import Image from 'next/image'
+import { AspectRatio, Badge, Group, Image, Paper, Text, Title } from '@mantine/core'
+import { IconArrowUpRight } from '@tabler/icons-react'
 
 interface PortfolioCardProps {
   title: string
@@ -9,31 +9,34 @@ interface PortfolioCardProps {
   href: string
 }
 
-export const PortfolioCard: React.FC<PortfolioCardProps> = ({ title, category, image, href }) => {
+export function PortfolioCard({ title, category, image, href }: PortfolioCardProps) {
   return (
-    <Link href={href} className="group relative block overflow-hidden border-2 border-figma-text/10 hover:border-figma-text transition-all bg-figma-bg">
-      <div className="aspect-[16/10] overflow-hidden grayscale group-hover:grayscale-0 transition-all duration-700">
-        {/* Fill with a placeholder color to simulate mockup background from Figma */}
-        <div className="h-full w-full bg-figma-text/5 group-hover:scale-105 transition-transform duration-700 ease-out flex items-center justify-center p-12">
-           <div className="w-full h-full border-2 border-figma-text/5 bg-white shadow-2xl origin-bottom group-hover:rotate-1 transition-transform duration-700" />
-        </div>
-      </div>
-      
-      <div className="p-8">
-        <div className="flex items-center justify-between gap-4">
+    <Link href={href} className="block no-underline">
+      <Paper
+        p={0}
+        withBorder
+        radius="xl"
+        className="group premium-surface overflow-hidden transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl"
+      >
+        <AspectRatio ratio={16 / 10}>
+          <Image src={image} alt={title} className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105" />
+        </AspectRatio>
+
+        <Group justify="space-between" align="flex-start" p="xl">
           <div>
-            <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-figma-text/30 mb-2">
+            <Badge variant="light" color="bronze" mb={10}>
               {category}
-            </p>
-            <h3 className="text-2xl font-bold text-figma-text uppercase tracking-tighter leading-none">
+            </Badge>
+            <Title order={3} fz="h4" maw={340}>
               {title}
-            </h3>
+            </Title>
+            <Text size="sm" c="dimmed" mt="sm">
+              Explore case study
+            </Text>
           </div>
-          <div className="text-figma-text/20 group-hover:text-figma-text transition-colors">
-            <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
-          </div>
-        </div>
-      </div>
+          <IconArrowUpRight size={22} className="text-[var(--color-figma-accent)] transition-transform group-hover:translate-x-1 group-hover:-translate-y-1" />
+        </Group>
+      </Paper>
     </Link>
   )
 }

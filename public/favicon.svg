@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Baituna Studio">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#8a50f6" />
+      <stop offset="100%" stop-color="#4f46e5" />
+    </linearGradient>
+    <linearGradient id="accent" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#e9fff5" />
+      <stop offset="100%" stop-color="#d2fae8" />
+    </linearGradient>
+  </defs>
+  <rect x="4" y="4" width="56" height="56" rx="16" fill="url(#bg)" />
+  <path
+    d="M20 18h13.5c7.2 0 11.8 3.8 11.8 9.4 0 3.7-2 6.4-5.4 7.8 4.2 1.2 6.8 4.3 6.8 8.6 0 6.3-5.1 10.2-13 10.2H20V18zm12.5 13.4c3.1 0 4.8-1.3 4.8-3.6 0-2.2-1.7-3.5-4.8-3.5h-4v7.1h4zm1.2 16.1c3.5 0 5.5-1.5 5.5-4.2s-2-4.2-5.5-4.2h-5.2v8.4h5.2z"
+    fill="white"
+  />
+  <circle cx="49" cy="15" r="4" fill="url(#accent)" opacity="0.95" />
+</svg>
